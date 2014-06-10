@@ -28,10 +28,7 @@ font-weight:normal;color:#000000;letter-spacing:1pt;word-spacing:2pt;font-size:2
 <form action = "graph.php" method="post">
 <h1 class="title">What do you want to diagram today?</h1>
 <textarea name="query" rows="15" style="width: 100%;resize:both" spellcheck="false" >
-<?php
-if (isset($_POST["query"])) {
-    echo $_POST["query"];
-}
+<?php if (isset($_POST["query"])) echo $_POST["query"]; 
 ?>
 </textarea>
 <br/>
@@ -64,7 +61,7 @@ function graphviz($match)
         )
     );
     
-    $renderer = "/opt/swt/bin/dot";
+    $renderer = "dot";
     
     $proc = proc_open($renderer . ' -Tsvg', $pipespec, $pipes, NULL, NULL);
     
